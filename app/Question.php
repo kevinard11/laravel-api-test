@@ -25,4 +25,16 @@ class Question extends Model
         $this->attributes['slug']= Str::slug($value);
         
     }
+
+    public function getUrlAttribute()
+    {
+        # code...
+        return route("questions.show", $this->id);
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        # code...
+        return $this->created_at->diffForHumans();
+    }
 }

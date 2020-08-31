@@ -12,10 +12,25 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function index()
+    // {
+    //     //
+    //     $questions = Question::latest()->paginate(5);
+    //     return view('questions.index', compact('questions'));
+    // }
+    // public function index()
+    // {
+    //     //
+    //     \DB::enableQueryLog();
+    //     $questions = Question::with('user')->latest()->paginate(5);
+    //     view('questions.index', compact('questions'))->render();
+
+    //     dd(\DB::getQueryLog());
+    // }
     public function index()
     {
         //
-        $questions = Question::latest()->paginate(5);
+        $questions = Question::with('user')->latest()->paginate(5);
         return view('questions.index', compact('questions'));
     }
 
