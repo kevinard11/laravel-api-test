@@ -1,0 +1,44 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.counters {
+    margin-right: 30px;
+    font-size: 10px;
+    text-align: center;
+
+    strong{
+        display: block;
+        font-size: 2em;
+    }
+    .vote, .answer{
+        width : 50px;
+        height: 50px;
+        // border : 1px solid red;
+    }
+
+    .status{
+        &.unanswered{
+            border : none;
+        }
+
+        &.answered{
+            border : 1px solid $green;
+            color : $green;
+        }
+
+        &.answered-accepted{
+            background: $green;
+            color: $white;
+        }
+    }
+
+    .view{
+        margin-top: 5px;
+    }
+}
