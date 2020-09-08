@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use Illuminate\Http\Request;
+use App\Http\Resources\QuestionResource;
 use App\Http\Requests\AskQuestionRequest;
 
 class QuestionController extends Controller
@@ -70,7 +71,8 @@ class QuestionController extends Controller
     {
         //
         # code...
-        return QuestionResource::collection($question);
+        $question->increment('views');
+        return view('questions.show', compact('question'));
     }
 
     /**
