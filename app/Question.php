@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\Answer;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,7 +42,7 @@ class Question extends Model
     public function getStatusAttribute()
     {
         # code...
-        if($this->answers > 0){ 
+        if($this->answers_count > 0){ 
             if($this->best_answer_id){
                 return "answered-accepted";
             }
@@ -55,5 +56,11 @@ class Question extends Model
         # code... 
         // $parsedown = new \Parsedown();
         return \Parsedown::instance()->text($this->body);
+    }
+
+    public function answers()
+    {
+        # code...
+        return $this->hasMany(Answer::class);
     }
 }
